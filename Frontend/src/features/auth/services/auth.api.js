@@ -1,8 +1,10 @@
 import axios from "axios"
 
 
+// In Vite, env vars must start with VITE_ and are available via import.meta.env.
+// This allows the frontend to point at different backend URLs per environment.
 const api = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:3000",
     withCredentials: true
 })
 
